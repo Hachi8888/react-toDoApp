@@ -2,6 +2,7 @@ import "./styles.css";
 import React, { useState } from "react";
 import { InputTodo } from "./components/inputTodo";
 import { IncompleteTodos } from "./components/incompleteTodos";
+import { CompleteTodos } from "./components/completeTodos";
 
 export const App = () => {
   const [todoText, setTodoText] = useState("");
@@ -12,6 +13,7 @@ export const App = () => {
 
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
+  // 追加ボタン
   const onClickAdd = () => {
     if (todoText === "") return;
 
@@ -20,6 +22,7 @@ export const App = () => {
     setTodoText("");
   };
 
+  // 削除ボタン
   const onClickDelete = (index) => {
     // 未完了リストから削除
     const newIncompleteTodos = [...incompleteTodos];
@@ -27,6 +30,7 @@ export const App = () => {
     setIncompleteTodos(newIncompleteTodos);
   };
 
+  // 完了ボタン
   const onClickComplete = (index) => {
     // 未完了リストから削除
     const newTodos = [...incompleteTodos];
@@ -38,6 +42,7 @@ export const App = () => {
     setCompleteTodos(newCompleteTodos);
   };
 
+  // 戻すモダン
   const onClickBack = (index) => {
     const newCompleteTodos = [...completeTodos];
     newCompleteTodos.splice(index, 1);
@@ -61,19 +66,7 @@ export const App = () => {
         onClickDelete={onClickDelete}
       />
 
-      <div className="complete-area">
-        <p className="title">完了のTODO</p>
-        <ul>
-          {completeTodos.map((todo, index) => {
-            return (
-              <div key={todo} className="list-row">
-                <li>{todo}</li>
-                <button onClick={() => onClickBack(index)}>戻す</button>
-              </div>
-            );
-          })}
-        </ul>
-      </div>
+      <CompleteTodos todos={completeTodos} onClick={onClickBack} />
     </>
   );
 };
