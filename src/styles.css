@@ -1,4 +1,63 @@
-.App {
+body {
   font-family: sans-serif;
+  width: 400px;
+}
+
+input {
+  border-radius: 8px;
+  border: none;
+  padding: 6px 16px;
+}
+
+button {
+  border-radius: 16px;
+  border: none;
+  padding: 4px 16px;
+  margin-right: 8px;
+}
+
+button:hover {
+  background-color: #ff7fff;
+  color: #fff;
+}
+
+li {
+  margin-right: 8px;
+}
+
+.input-area {
+  background-color: #c1ffff;
+  height: 30px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.incomplete-area {
+  background-color: #c6ffe2;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.complete-area {
+  background-color: #ffffe0;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.title {
   text-align: center;
+  margin-top: 0;
+  font-weight: bold;
+  color: #666;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4px;
 }
